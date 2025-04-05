@@ -93,6 +93,23 @@ public class GestionnaireChaletsEtEmployés {
 		return choix;
 	}
 
+	private static void comparerDeuxSalaires() {
+		System.out.println("\n==========PREMIER EMPLOYÉ==========");
+		Employé employé1 = trouverEmployé();
+
+		System.out.println("\n==========SECOND EMPLOYÉ==========");
+		Employé employé2 = trouverEmployé();
+
+		int résultat = employé1.compareTo(employé2);
+		if (résultat < 0) {
+			System.out.println("\nLe premier employé a un salaire plus bas que celui du second employé.");
+		} else if (résultat > 0) {
+			System.out.println("\nLe premier employé a un salaire plus élevé que celui du second employé.");
+		} else {
+			System.out.println("\nLes deux employés ont des salaires égaux.");
+		}
+	}
+
 	private static void menuEmployé() {
 		boolean arrêtMenuEmployé = false;
 		Employé employéConnecté;
