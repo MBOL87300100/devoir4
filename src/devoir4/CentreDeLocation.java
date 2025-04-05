@@ -10,6 +10,7 @@ public class CentreDeLocation {
 		this.employés = employés;
 		this.motDePasse = motDePasse;
 	}
+	
 
 	public Chalet[] getChalets() {
 		return chalets;
