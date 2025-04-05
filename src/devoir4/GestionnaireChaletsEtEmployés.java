@@ -9,12 +9,11 @@ public class GestionnaireChaletsEtEmployés {
 	private static CentreDeLocation entreprise = new CentreDeLocation(new Chalet[], new Employé[], MDPPROPRIO);
 
 	public static void main(String[] args) {
-
 		boolean arrêtMenuPrincipal = false;
 
 		while (!arrêtMenuPrincipal) {
 			afficherMenuPrincipal();
-			option = scan.nextInt();
+			option = traiterChoix(0, 2);
 
 			switch (option) {
 			case 0: {
@@ -74,6 +73,26 @@ public class GestionnaireChaletsEtEmployés {
 		System.out.println("Appuyez sur 0 pour retourner au menu principal.\n");
 		System.out.println("Veuillez choisir une option.");
 	}
+
+	private static int traiterChoix(int limiteMinimum, int limiteMaximum) {
+		int choix = -1;
+		boolean valide = false;
+
+		while (!valide) {
+			try {
+				choix = Integer.parseInt(scan.nextLine().trim());
+				if (choix >= limiteMinimum && choix <= limiteMaximum) {
+					valide = true;
+				} else {
+					System.out.println("Votre choix ne fait pas partie des options valides. Réessayez.\n");
+				}
+			} catch (Exception e) {
+				System.out.println("Ceci est une entrée invalide. Recommencez.\n");
+			}
+		}
+		return choix;
+	}
+
 	
 	private static Employé trouverEmployé() {
 		int id;
@@ -107,7 +126,7 @@ public class GestionnaireChaletsEtEmployés {
 
 		while (!arrêtMenuEmployé) {
 			afficherMenuEmployé();
-			option = scan.nextInt();
+			option = traiterChoix(0, 4);
 
 			switch (option) {
 			case 0: {
@@ -136,7 +155,7 @@ public class GestionnaireChaletsEtEmployés {
 
 		while (!arrêtMenuPropriétaire) {
 			afficherMenuPropriétaire();
-			option = scan.nextInt();
+			option = traiterChoix(0, 15);
 
 			switch (option) {
 			case 0: {
