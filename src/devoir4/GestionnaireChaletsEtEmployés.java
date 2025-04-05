@@ -75,12 +75,12 @@ public class GestionnaireChaletsEtEmployés {
 		System.out.println("Veuillez choisir une option.");
 	}
 	
-	private static Employé authentifierEmployé() {
+	private static Employé trouverEmployé() {
 		int id;
 		Employé employé;
 		boolean valide = false;
 		
-		System.out.println("\nVeuillez fournir votre id d'employé pour vous authentifier.");
+		System.out.println("\nVeuillez fournir un id d'employé valide.");
 		
 		while(!valide) {
 			try {
@@ -90,11 +90,11 @@ public class GestionnaireChaletsEtEmployés {
 					valide = true;
 				}
 				else {
-					System.out.println("Aucun employé associé à cet id. Réessayez.");
+					System.out.println("\nAucun employé associé à cet id. Réessayez.");
 				}
 			}
 			catch (Exception e) {
-				System.out.println("Vous avez entré un id invalide. Recommencez.");
+				System.out.println("\nVous avez entré un id invalide. Recommencez.");
 			}
 		}
 		return employé;
@@ -102,7 +102,8 @@ public class GestionnaireChaletsEtEmployés {
 
 	private static void menuEmployé() {
 		boolean arrêtMenuEmployé = false;
-		Employé employéConnecté;
+		
+		Employé employéConnecté = trouverEmployé();
 
 		while (!arrêtMenuEmployé) {
 			afficherMenuEmployé();
