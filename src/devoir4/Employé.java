@@ -1,19 +1,21 @@
+/*Références
+ * https://stackoverflow.com/a/21626529 */
+
 package devoir4;
 
 import java.util.Arrays;
 
-public class Employé {
+public class Employé implements Comparable<Employé> {
 	private String nom;
 	private String prénom;
 	private double salaire;
-	private static int auto=100000;
+	private static int auto = 100000;
 	private int id;
 	private String ville;
-	private boolean[]disponibilités;
-	private Chalet [] chaletEntretenus;
+	private boolean[] disponibilités;
+	private Chalet[] chaletEntretenus;
 
-	public Employé(String nom, String prénom, String ville, boolean[] disponibilités,
-			Chalet[] chaletEntretenu) {
+	public Employé(String nom, String prénom, String ville, boolean[] disponibilités, Chalet[] chaletEntretenu) {
 		this.nom = nom;
 		this.prénom = prénom;
 		this.id = ++auto;
@@ -25,7 +27,6 @@ public class Employé {
 	public String getNom() {
 		return nom;
 	}
-
 
 	public void setNom(String nom) {
 		this.nom = nom;
@@ -51,12 +52,13 @@ public class Employé {
 	public void setVille(String ville) {
 		this.ville = ville;
 	}
+
 	public double getSalaire() {
 		return salaire;
 	}
-	
+
 	public void setSalaire(double salaire) {
-		this.salaire=salaire;
+		this.salaire = salaire;
 	}
 
 	public boolean[] getDisponibilités() {
@@ -74,9 +76,15 @@ public class Employé {
 	public void setChaletEntretenu(Chalet[] chaletEntretenu) {
 		this.chaletEntretenus = chaletEntretenu;
 	}
+
+	public int compareTo(Employé autreEmployé) {
+		return Double.compare(this.salaire, autreEmployé.salaire);
+	}
+
 	public String toString() {
-		return "Employé ["+ id +"," + nom + "," + prénom + "son salaire=" + salaire+ ", ville:" + ville + ", les disponibilités sont :"
-				+ Arrays.toString(disponibilités) + ", chaletEntretenu=" + Arrays.toString(chaletEntretenus) + "]";
+		return "Employé [" + id + "," + nom + "," + prénom + "son salaire=" + salaire + ", ville:" + ville
+				+ ", les disponibilités sont :" + Arrays.toString(disponibilités) + ", chaletEntretenu="
+				+ Arrays.toString(chaletEntretenus) + "]";
 	}
 
 }
