@@ -18,7 +18,7 @@ public class Employé {
 		this.prénom = prénom;
 		this.id = ++auto;
 		this.ville = ville;
-		this.disponibilités = disponibilités;
+		this.disponibilités = new boolean[7];
 		this.chaletEntretenus = chaletEntretenu;
 	}
 
@@ -63,8 +63,8 @@ public class Employé {
 		return disponibilités;
 	}
 
-	public void setDisponibilités(boolean[] disponibilités) {
-		this.disponibilités = disponibilités;
+	public void setDisponibilités(int jour, boolean disponibilités) {
+		if (jour >= 0 && jour < 7) this.disponibilités[jour]=disponibilités;
 	}
 
 	public Chalet[] getChaletEntretenu() {
